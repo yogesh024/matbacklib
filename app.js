@@ -10,7 +10,8 @@ var indexRouter = require('./routes/index');
 const mongoose = require('mongoose');
 const book = require('./routes/book/index')
 
-const DB = 'mongodb+srv://y55:y55@cluster0.5jb58bg.mongodb.net/book';
+
+const DB = 'mongodb+srv://y55:y55@cluster0.5jb58bg.mongodb.net/book?retryWrites=true&w=majority';
 
 mongoose.set('strictQuery', false);
 mongoose.set('strictQuery', true);
@@ -25,7 +26,6 @@ mongoose.connect(DB, {
 .catch((error) => {
     console.error("Failed to connect to the database", error);
 });
-
 
 const PUBLISHABLE_KEY=process.env.PUBLISHABLE_KEY
 const SECRET_KEY=process.env.SECRET_KEY
